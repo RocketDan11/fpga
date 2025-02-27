@@ -16,3 +16,5 @@ in hls config select the correct top\_module
 -> run package
 -> run implementation
 
+
+Licensing -- if you have an issue with license.. click the link provided in vitis to go to amd.com .. create new license selecting vitis HLS. create new host.. to find hostname in terminal type 'hostname'.. select Ethernet/MAC and to find MAC @ type 'ip link show' or 'ifconfig'.. find the 6 hex representing MAC.. should look like 'ff:ff:ff:ff:ff:ff'

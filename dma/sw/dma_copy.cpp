@@ -3,8 +3,8 @@
 
 // Top-level HLS function for DMA
 void dma_copy(volatile uint32_t *src, volatile uint32_t *dst, uint32_t length) {
-#pragma HLS INTERFACE m_axi port=src  offset=slave bundle=AXI_SRC
-#pragma HLS INTERFACE m_axi port=dst  offset=slave bundle=AXI_DST
+#pragma HLS INTERFACE m_axi port=src  offset=slave bundle=AXI_SRC depth=1024
+#pragma HLS INTERFACE m_axi port=dst  offset=slave bundle=AXI_DST depth=1024
 #pragma HLS INTERFACE s_axilite port=src   bundle=CTRL
 #pragma HLS INTERFACE s_axilite port=dst   bundle=CTRL
 #pragma HLS INTERFACE s_axilite port=length bundle=CTRL

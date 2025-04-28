@@ -5,3 +5,11 @@ axi\_bram\_ctrl\_0 | 0x4000\_0000 | 0x4000\_1FFF | 8kb
 axi\_bram\_ctrl\_0 | 0x4200\_0000 | 0x4200\_1FFF | 8kb
 dma\_0 s\_axi\_ctrl | 0x43C0\_0000 | 0x4C0\_FFFF | 64kb
 
+attemp1: unassign s\_axi\_ctrl in both BRAM0 and BRAM1, BRAM0 and BRAM1 each get a unique 8kb slice at 0x4000\_0000 and 0x4000\_2000. DMA control register lives only at 0x4001\_0000-0x4001\_FFFF on the PS side. there are no overlapping windows.
+
+to run i had to check the FSBL box instead of TCL init. code runs without getting hung up. need to add debugging printouts to confirm it actually works
+
+added printouts and handling of 64-bit addresses for potential memory access beyond 4GB - overhead is minimal.
+
+testing shows succesful dma transfer.
+

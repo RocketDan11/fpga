@@ -31,6 +31,7 @@ we will be using KVM + virt-manager to manage our virtual machine.
     Get whatever version you would like
 `wget https://releases.ubuntu.com/24.04.3/ubuntu-24.04.3-live-server-amd64.iso`
 
+*make sure virtualization is enabled in the BIOS or the next step will fail*
 
 4. Create the VM
 

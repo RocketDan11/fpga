@@ -48,4 +48,27 @@ we will be using KVM + virt-manager to manage our virtual machine.
     f.Network: NAT is fine
     g. Finish -> boot installer
 
+5. Create shared file system.
+    on the host machine, install virtiofsd.
+    `sudo apt install -y virtiofsd`
+    
+    Verify.
+    `which virtiofsd`
+    `virtiofsd --version`
 
+    Note: restart libvirt
+    `sudo systemctl restart libvirtd`
+
+    
+
+    Now in the virt-manager gui we can add a shared file system by going to "Show virtual hardware details"-> First go to "Memory" and make sure shared mmory is enabled then -> Add hardware -> Filesystem -> set source path on host machine and target path will be the mount tag.
+
+    Inside the VM install virtiofsd
+    `sudo apt update`
+    `sudo apt install -y virtiofsd`
+
+    Mount it.
+    `sudo mkdir -p /mnt/shared/`
+    `sudo mount -t virtiofs shared /mnt/shared/`
+
+    Now anything you put in <path/set/on/host/machine/> appers in /mnt/shared/ in the VM.
